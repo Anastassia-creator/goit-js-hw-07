@@ -1,8 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
 const gallery = document.querySelector('.gallery');
 const galleryLi = galleryItems.map(({preview, original, description}) =>
 `<li data-preview=${preview} class="gallery__item">
@@ -19,7 +17,7 @@ gallery.insertAdjacentHTML("beforeend", galleryLi);
 gallery.addEventListener("click", onClick)
 
 function onClick (evt) {
-    // evt.preventDefoult();
+    evt.preventDefault();
     const dataPreview = evt.target.dataset.source;
     const img = evt.target.alt;
     const instance = basicLightbox.create(`
